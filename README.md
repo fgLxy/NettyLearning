@@ -1,2 +1,2 @@
 # NettyLearning
-这是Netty权威指南中使用BIO实现的TimeServer简单示例
+学习Netty权威指南一书中编写的练习代码存放处
