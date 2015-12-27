@@ -22,18 +22,13 @@ public final class SubscribeRespProto {
     int getSubReqID();
 
     /**
-     * <code>required string respCode = 2;</code>
+     * <code>required int32 respCode = 2;</code>
      */
     boolean hasRespCode();
     /**
-     * <code>required string respCode = 2;</code>
+     * <code>required int32 respCode = 2;</code>
      */
-    java.lang.String getRespCode();
-    /**
-     * <code>required string respCode = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getRespCodeBytes();
+    int getRespCode();
 
     /**
      * <code>required string desc = 3;</code>
@@ -106,10 +101,9 @@ public final class SubscribeRespProto {
               subReqID_ = input.readInt32();
               break;
             }
-            case 18: {
-              com.google.protobuf.ByteString bs = input.readBytes();
+            case 16: {
               bitField0_ |= 0x00000002;
-              respCode_ = bs;
+              respCode_ = input.readInt32();
               break;
             }
             case 26: {
@@ -174,45 +168,18 @@ public final class SubscribeRespProto {
     }
 
     public static final int RESPCODE_FIELD_NUMBER = 2;
-    private java.lang.Object respCode_;
+    private int respCode_;
     /**
-     * <code>required string respCode = 2;</code>
+     * <code>required int32 respCode = 2;</code>
      */
     public boolean hasRespCode() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required string respCode = 2;</code>
+     * <code>required int32 respCode = 2;</code>
      */
-    public java.lang.String getRespCode() {
-      java.lang.Object ref = respCode_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          respCode_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string respCode = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getRespCodeBytes() {
-      java.lang.Object ref = respCode_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        respCode_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getRespCode() {
+      return respCode_;
     }
 
     public static final int DESC_FIELD_NUMBER = 3;
@@ -259,7 +226,7 @@ public final class SubscribeRespProto {
 
     private void initFields() {
       subReqID_ = 0;
-      respCode_ = "";
+      respCode_ = 0;
       desc_ = "";
     }
     private byte memoizedIsInitialized = -1;
@@ -291,7 +258,7 @@ public final class SubscribeRespProto {
         output.writeInt32(1, subReqID_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getRespCodeBytes());
+        output.writeInt32(2, respCode_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeBytes(3, getDescBytes());
@@ -311,7 +278,7 @@ public final class SubscribeRespProto {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getRespCodeBytes());
+          .computeInt32Size(2, respCode_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
@@ -436,7 +403,7 @@ public final class SubscribeRespProto {
         super.clear();
         subReqID_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        respCode_ = "";
+        respCode_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
         desc_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -500,9 +467,7 @@ public final class SubscribeRespProto {
           setSubReqID(other.getSubReqID());
         }
         if (other.hasRespCode()) {
-          bitField0_ |= 0x00000002;
-          respCode_ = other.respCode_;
-          onChanged();
+          setRespCode(other.getRespCode());
         }
         if (other.hasDesc()) {
           bitField0_ |= 0x00000004;
@@ -580,78 +545,34 @@ public final class SubscribeRespProto {
         return this;
       }
 
-      private java.lang.Object respCode_ = "";
+      private int respCode_ ;
       /**
-       * <code>required string respCode = 2;</code>
+       * <code>required int32 respCode = 2;</code>
        */
       public boolean hasRespCode() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required string respCode = 2;</code>
+       * <code>required int32 respCode = 2;</code>
        */
-      public java.lang.String getRespCode() {
-        java.lang.Object ref = respCode_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            respCode_ = s;
-          }
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public int getRespCode() {
+        return respCode_;
       }
       /**
-       * <code>required string respCode = 2;</code>
+       * <code>required int32 respCode = 2;</code>
        */
-      public com.google.protobuf.ByteString
-          getRespCodeBytes() {
-        java.lang.Object ref = respCode_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          respCode_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string respCode = 2;</code>
-       */
-      public Builder setRespCode(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      public Builder setRespCode(int value) {
+        bitField0_ |= 0x00000002;
         respCode_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string respCode = 2;</code>
+       * <code>required int32 respCode = 2;</code>
        */
       public Builder clearRespCode() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        respCode_ = getDefaultInstance().getRespCode();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string respCode = 2;</code>
-       */
-      public Builder setRespCodeBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        respCode_ = value;
+        respCode_ = 0;
         onChanged();
         return this;
       }
@@ -759,7 +680,7 @@ public final class SubscribeRespProto {
     java.lang.String[] descriptorData = {
       "\n\023SubscribeResp.proto\022\005netty\"A\n\rSubscrib" +
       "eResp\022\020\n\010subReqID\030\001 \002(\005\022\020\n\010respCode\030\002 \002(" +
-      "\t\022\014\n\004desc\030\003 \002(\tB3\n\035org.my.protobuf.test." +
+      "\005\022\014\n\004desc\030\003 \002(\tB3\n\035org.my.protobuf.test." +
       "protobufB\022SubscribeRespProto"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
