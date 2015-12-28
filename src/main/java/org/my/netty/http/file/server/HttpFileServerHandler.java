@@ -97,14 +97,7 @@ public class HttpFileServerHandler extends
 		
 		List<String> lines = Files.readAllLines(path);
 		for(String line : lines) {
-//			line = line.replaceAll("&", "&amp;")
-//					.replaceAll(" ", "&nbsp;")
-//					.replaceAll("\t", "&nbsp;&nbsp;&nbsp;&nbsp;")
-//					.replaceAll("<", "&lt;")
-//					.replaceAll(">", "&gt;")
-//					.replaceAll("\"", "&quot;");
-					
-			builder.append(line).append("\n");//.append("<h2>").append(line).append("</h2>");
+			builder.append(line).append("\n");
 		}
 		builder.append("</pre></body>");
 		
