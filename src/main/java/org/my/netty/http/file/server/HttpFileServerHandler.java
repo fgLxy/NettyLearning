@@ -93,20 +93,20 @@ public class HttpFileServerHandler extends
 		FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK);
 		StringBuilder builder = new StringBuilder();
 		builder.append("<!doctype html><head><title>debug</title></head><body><h1>")
-				.append(path.toFile().getName()).append("</h1>");
+				.append(path.toFile().getName()).append("</h1><pre style='word-wrap: break-word; white-space: pre-wrap;'>");
 		
 		List<String> lines = Files.readAllLines(path);
 		for(String line : lines) {
-			line = line.replaceAll("&", "&amp;")
-					.replaceAll(" ", "&nbsp;")
-					.replaceAll("\t", "&nbsp;&nbsp;&nbsp;&nbsp;")
-					.replaceAll("<", "&lt;")
-					.replaceAll(">", "&gt;")
-					.replaceAll("\"", "&quot;");
+//			line = line.replaceAll("&", "&amp;")
+//					.replaceAll(" ", "&nbsp;")
+//					.replaceAll("\t", "&nbsp;&nbsp;&nbsp;&nbsp;")
+//					.replaceAll("<", "&lt;")
+//					.replaceAll(">", "&gt;")
+//					.replaceAll("\"", "&quot;");
 					
-			builder.append("<h2>").append(line).append("</h2>");
+			builder.append(line).append("\n");//.append("<h2>").append(line).append("</h2>");
 		}
-		builder.append("</body>");
+		builder.append("</pre></body>");
 		
 		ByteBuf responseBuf = Unpooled.copiedBuffer(builder, CharsetUtil.UTF_8);
 		response.content().writeBytes(responseBuf);
